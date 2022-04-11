@@ -1,0 +1,32 @@
+; Top Design: "Reflectionless_filter_lib:Chebyshev_HP_LP:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="Reflectionless_filter_lib:Chebyshev_HP_LP:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+C:C1  N__24 N__4 C=1.0 nF 
+L:L1  N__4 0 L=4.7 uH R=1e-12 Ohm Noise=yes  
+C:C2  N__4 N__3 C=620 pF 
+L:L2  N__3 0 L=4.7 uH R=1e-12 Ohm Noise=yes  
+C:C3  N__3 N__5 C=1.0 nF 
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=0.1 MHz Stop=100 MHz Lin=9001 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+Port:TermG1  N__24 0 Num=1 Z=75 Ohm Noise=yes 
+#uselib "ckt" , "SnP"
+SnP:SnP2  0 0 N__5 N__22 N__7 NumPorts=4 File="G:\Meu Drive\Reflectionless_filter\simulações_artigo\Trafo_RF_Coilcraft\PWB-1010-1L.s4p" Type="touchstone" InterpMode="linear" InterpDom="" ExtrapMode="constant" Temp=27.0 CheckPassivity=0 
+C:C16  N__16 0 C=82 pF 
+C:C17  N__8 0 C=82 pF 
+L:L8  N__16 N__8 L=330 nH R=1e-12 Ohm Noise=yes  
+L:L9  N__22 N__16 L=180 nH R=1e-12 Ohm Noise=yes  
+L:L10  N__8 N__11 L=180 nH R=1e-12 Ohm Noise=yes  
+Port:TermG4  N__11 0 Num=2 Z=50 Ohm Noise=yes 

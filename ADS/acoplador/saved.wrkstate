@@ -1,0 +1,7 @@
+<!DOCTYPE SaveWorkspaceState>
+<SaveWorkspaceState>
+    <Windows>
+        <Schematic view="schematic" x1="-1" width="1366" y1="-8" lib="Reflectionless_filter_lib" height="745" cell="Chebyshev_HP_LP" geom="1,0,3,201,46,916,736,1366,768"/>
+    </Windows>
+    <MainWindowTab tab="1"/>
+</SaveWorkspaceState>

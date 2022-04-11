@@ -1,0 +1,11 @@
+
+hpeesofsim (*) 512.update2.0 Feb 27 2020, MINT version 5
+    (64-bit windows built: Thu Feb 27, 2020 19:34:00 +0000)
+
+
+SP SP1[1] <Reflectionless_filter_lib:Chebyshev_HP_LP:schematic>   freq=(100 kHz->100 MHz)
+
+
+Resource usage:
+  Total stopwatch time     =     0.49 seconds.
+
